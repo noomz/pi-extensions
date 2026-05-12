@@ -1,4 +1,4 @@
-import type { Pi } from "@earendil-works/pi-coding-agent";
+import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
 
 const NO_LATEX_RULE = `
 
@@ -33,9 +33,9 @@ function isGemma(modelId: string | undefined): boolean {
 	return GEMMA_PATTERNS.some((re) => re.test(modelId));
 }
 
-export default function (pi: Pi) {
-	pi.on("before_agent_start", async (event: any) => {
-		const modelId: string | undefined = event?.model?.id;
+export default function (pi: ExtensionAPI) {
+	pi.on("before_agent_start", async (event) => {
+		const modelId = event.model?.id;
 		if (!isGemma(modelId)) return;
 		return { systemPrompt: `${event.systemPrompt}${NO_LATEX_RULE}` };
 	});
