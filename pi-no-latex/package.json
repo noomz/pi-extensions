@@ -1,0 +1,14 @@
+{
+  "name": "pi-no-latex",
+  "version": "0.1.0",
+  "description": "Suppress LaTeX inline math delimiters in Gemma model output — force Unicode symbols directly.",
+  "private": true,
+  "license": "MIT",
+  "keywords": ["pi-package", "pi-extension"],
+  "pi": {
+    "extensions": ["./extensions/no-latex.ts"]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  }
+}
